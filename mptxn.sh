@@ -60,3 +60,32 @@ if [ $choice == "Cnc" ]; then
 echo "Transaction Canceled";
 fi
 fi
+
+#Choice 4 Lipa Na Mpesa Section
+if [ $option2  -eq 4 ]; then
+echo "**************LIPA NA MPESA****************";
+echo "";
+sleep 1
+echo "1.Pay Bill";
+echo "2.Buy Goods And Services";
+sleep 1
+echo "";
+echo "Select option 1 or 2 ";
+read option
+sleep 1
+
+if [$option  -eq 1 ]; then
+echo "Enter business no";
+
+fi
+
+if [$option  -eq 2 ]; then
+echo "Enter Till Number ";read tillNumber
+sleep 1
+echo "Enter Amount";read amount
+sleep 1
+echo "Enter Your Pin"; read -s pin
+sleep
+
+fi
+fi
