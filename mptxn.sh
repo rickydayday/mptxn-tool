@@ -7,11 +7,12 @@ MAGENTA="$(printf '\033[35m')"  CYAN="$(printf '\033[36m')"  WHITE="$(printf '\0
 REDBG="$(printf '\033[41m')"  GREENBG="$(printf '\033[42m')"  ORANGEBG="$(printf '\033[43m')"  BLUEBG="$(printf '\033[44m')"
 MAGENTABG="$(printf '\033[45m')"  CYANBG="$(printf '\033[46m')"  WHITEBG="$(printf '\033[47m')" BLACKBG="$(printf '\033[40m')"
 RESETBG="$(printf '\e[0m\n')"
-echo "        ${GREENBG}*Welcome To Safaricom Mpesa Services*${NC}                 "
-echo "--------------------------------------------------------------"
+
+echo -e "      * Welcome To Safaricom Mpesa Services*      "
 sleep 1
-echo "************************1.MPESA*******************************"
-echo "--------------------------------------------------------------"
+echo "-------------------------------"
+echo "************1.MPESA********** *"
+echo "-------------------------------"
 sleep 2
 
 echo "Select Option 1 for MPESA";
@@ -70,7 +71,7 @@ fi
 
 #Choice 4 Lipa Na Mpesa Section
 if [ $option2  -eq 4 ]; then
-echo "**************LIPA NA MPESA****************";
+echo "***********LIPA NA MPESA***********";
 echo "";
 sleep 1
 echo "1.Pay Bill";
@@ -81,18 +82,38 @@ echo "Select option 1 or 2 ";
 read option
 sleep 1
 
-if [$option  -eq 1 ]; then
+if [ $option  -eq 1 ]; then
 echo "Enter business no";
 
 fi
 
-if [$option  -eq 2 ]; then
+if [ $option  -eq 2 ]; then
 echo "Enter Till Number ";read tillNumber
+echo "-----------------------";
 sleep 1
+echo "Enter till name";read name
+echo "-----------------------";
 echo "Enter Amount";read amount
+echo "-----------------------";
 sleep 1
 echo "Enter Your Pin"; read -s pin
-sleep
+echo "----------------------";
+sleep 2
+
+echo "==================================="
+echo "$NEW_UUID Confirmed. Ksh$amount";
+echo " paid to $name. on";
+echo " $date.New M-PESA";
+echo " balance is Ksh 60,567.Transaction";
+echo "cost , Kshs 0.00.";
+echo "==================================="
+#send message to reciever till number, this message should be sent
+#via sms service provider
+
+
 
 fi
 fi
+
+
+
