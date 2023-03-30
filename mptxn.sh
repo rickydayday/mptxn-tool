@@ -1,5 +1,5 @@
 #!/bin/bash
-date = $(date)
+today = `date +%m-%d-%Y`
 NEW_UUID=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 ## ANSI colors (FG & BG)
 RED="$(printf '\033[31m')"  GREEN="$(printf '\033[32m')"  ORANGE="$(printf '\033[33m')"  BLUE="$(printf '\033[34m')"
@@ -9,6 +9,7 @@ MAGENTABG="$(printf '\033[45m')"  CYANBG="$(printf '\033[46m')"  WHITEBG="$(prin
 RESETBG="$(printf '\e[0m\n')"
 
 echo -e "      * Welcome To Safaricom Mpesa Services*      "
+echo -e "      *Logged in at : $today
 sleep 1
 echo "-------------------------------"
 echo "************1.MPESA********** *"
@@ -58,8 +59,25 @@ read choice
 if [ $choice == "Ok" ]; then
 echo "";
 sleep 2
+
+# Replace the values below with your own Twilio account credentials and SMS message details
+account_sid=""
+auth_token=""
+from_number="+254712345678"
+to_number="+254712345678"
+message="$NEW_UUID Confirmed.You have recieved Ksh. $amount from ERICK OYUGI 0714315046 on $today.New M_PESA balance is Ksh.47748.28.Use Lipa na MPESA Buy Goods option to payfor shopping at NO Cost"
+# Send the SMS message using the Twilio API
+curl -X POST "https://api.twilio.com/2010-04-01/Accounts/$account_sid/Messages.json" \
+--user "$account_sid:$auth_token" \
+--data-urlencode "From=$from_number" \
+--data-urlencode "To=$phoneNumber" \
+--data-urlencode "Body=$message"
+
+
+sleep 1
+echo ""
 echo "=================================================================================================="
-echo "$NEW_UUID Confirmed. Ksh $amount.00 sent ERICK OYUGI $phoneNumber on $date $date +"%r". New Mpesa ";
+echo "$NEW_UUID Confirmed. Ksh $amount.00 sent ERICK OYUGI $phoneNumber on $today. New Mpesa ";
 echo "balance is Ksh 60,000.87.Transaction cost , Ksh 0.00. Amount you can transact within the day is";
 echo "299,900.00. Get a loan today from M-Shwari click https://mpesaapp.page.link/mshwari ";
 echo "=================================================================================================="
