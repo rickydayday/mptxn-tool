@@ -10,12 +10,8 @@ RESETBG="$(printf '\e[0m\n')" NOCOLOR = '\033[0m'
 
 
 
-# Replace the values below with your own Twilio account credentials and SMS message details
-account_sid=""
-auth_token=""
-from_number="+14346089725"
-to_number="+254714315046"
-message="Hello, this is a test message sent via Twilio SMS gateway."
+
+
 
 
 echo "${GREEN}**      **   ******    *******     ****      *"
@@ -86,8 +82,8 @@ echo "";
 sleep 2
 
 # Replace the values below with your own Twilio account credentials and SMS message details
-account_sid=""
-auth_token=""
+account_sid="AC800a9847d8281896092c0c66b6441ea8"
+auth_token="ab2b11411fbe224c2eea73df7438ca"
 from_number="+14346089725"
 to_number="+254714315046"
 message="${WHITE}$NEW_UUID Confirmed.You have recieved Ksh. $amount from ERICK OYUGI 0714315046 on $date.New M_PESA balance is Ksh.47748.28.Use Lipa na MPESA Buy Goods option to payfor shopping at NO Cost"
